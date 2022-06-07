@@ -1,4 +1,4 @@
-const { Modal, TextInputComponent, showModal } = require("discord-modals");
+const { Modal, TextInputComponent, showModal, SelectMenuComponent } = require("discord-modals");
 const { ButtonInteraction, Client, MessageEmbed } = require("discord.js");
 
 module.exports = {
@@ -10,25 +10,47 @@ module.exports = {
      */
     async execute(interaction, client) {
         const modal = new Modal()
-        .setCustomId("age-modal")
-        .setTitle("Age Selector");
+            .setCustomId("age-modal")
+            .setTitle("Candidatura");
 
         const primeiraPergunta = new TextInputComponent()
-        .setCustomId("nome")
-        .setLabel("Nome")
-        .setStyle("SHORT")
-        .setPlaceholder("Qual é o teu nome?")
-        .setRequired(true);
+            .setCustomId("steam")
+            .setLabel("Link Steam")
+            .setStyle("SHORT")
+            .setPlaceholder("Qual é a tua Steam?")
+            .setRequired(true);
 
         const segundaPergunta = new TextInputComponent()
-        .setCustomId("steam")
-        .setLabel("Link Steam")
-        .setStyle("SHORT")
-        .setPlaceholder("Qual é a tua Steam?")
-        .setRequired(true);
+            .setCustomId("idade")
+            .setLabel("Idade")
+            .setStyle("SHORT")
+            .setPlaceholder("Quantos anos tens?")
+            .setRequired(true);
 
-        modal.addComponents(primeiraPergunta, segundaPergunta);
-        
+        const terceiraPergunta = new TextInputComponent()
+            .setCustomId("disponibilidade")
+            .setLabel("Disponibilidade")
+            .setStyle("SHORT")
+            .setPlaceholder("Quantas horas tens disponivéis por dia?")
+            .setRequired(true);
+
+        const quartaPergunta = new TextInputComponent()
+            .setCustomId("comunidades")
+            .setLabel("Comunidades")
+            .setStyle("SHORT")
+            .setPlaceholder("Já foste staff de alguma comunidade? Se sim quais?")
+            .setRequired(true);
+
+        const quintaPergunta = new TextInputComponent()
+            .setCustomId("servidor")
+            .setLabel("Servidor")
+            .setStyle("SHORT")
+            .setPlaceholder("Em que servidores mais jogas?")
+            .setRequired(true);
+
+
+        modal.addComponents(primeiraPergunta, segundaPergunta, terceiraPergunta, quartaPergunta, quintaPergunta);
+
 
         showModal(modal, {
             client: client,
