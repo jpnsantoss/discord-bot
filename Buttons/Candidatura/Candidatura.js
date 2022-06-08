@@ -2,7 +2,7 @@ const { Modal, TextInputComponent, showModal, SelectMenuComponent } = require("d
 const { ButtonInteraction, Client, MessageEmbed } = require("discord.js");
 
 module.exports = {
-    id: "age-submit",
+    id: "candidatura",
     /**
      * 
      * @param {CommandInteraction} interaction 
@@ -10,7 +10,7 @@ module.exports = {
      */
     async execute(interaction, client) {
         const modal = new Modal()
-            .setCustomId("age-modal")
+            .setCustomId("cand-modal")
             .setTitle("Candidatura");
 
         const primeiraPergunta = new TextInputComponent()

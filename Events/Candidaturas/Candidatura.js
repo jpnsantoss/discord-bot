@@ -1,5 +1,5 @@
 const { Modal } = require("discord-modals");
-const { MessageEmbed, Client } = require("discord.js");
+const { MessageEmbed, Client, MessageActionRow, MessageButton } = require("discord.js");
 
 module.exports = {
     name: "modalSubmit",
@@ -9,6 +9,7 @@ module.exports = {
      * @param {Client} client
      */
     async execute(modal, client) {
+        if(modal.customId !== "cand-modal") return;
 
         await modal.deferReply({ ephemeral: true });
 
@@ -24,7 +25,21 @@ module.exports = {
             .setDescription(`**Steam:** ${Steam} \n\n **Idade:** ${Idade} \n\n **Disponibilidade:** ${Nome} \n\n **Comunidades:** ${Comunidades} \n\n **Servidor:** ${Servidor}`)
             .setTimestamp();
 
-        await client.channels.fetch('983798948265357414').then(channel => channel.send({ embeds: [Embed] }));
+        const Row = new MessageActionRow();
+
+        const aceitar = new MessageButton()
+            .setCustomId("cand-aceitar")
+            .setStyle("SUCCESS")
+            .setLabel("ACEITAR");
+
+        const recusar = new MessageButton()
+            .setCustomId("cand-recusar")
+            .setStyle("DANGER")
+            .setLabel("RECUSAR");
+
+        Row.addComponents(aceitar, recusar);
+
+        await client.channels.fetch('983798948265357414').then(channel => channel.send({ embeds: [Embed], components: [Row]  }));
 
         modal.followUp({
             embeds: [
