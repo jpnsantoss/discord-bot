@@ -11,19 +11,21 @@ module.exports = {
      */
     async execute(interaction, client) {
         const Embed = new MessageEmbed()
-        .setDescription("Click the **Answer** button to provide your age.")
-        .setColor("GREEN")
+            .setTitle("<a:1097dotanimatedred:983917835799658507> **LISTA STAFF**")
+            .setDescription("**DONO** - Responsável máximo.\n\n> ORYGEN\n> JPLAYS\n> qWeR\n\n**SUB-DONO** - Responsável pela administração.\n\n> StomperG\n\n**ADMIN** - Responsável pela coordenação e gestão de staff.\n\n> Lantejoula\n> Kotinha\n\n**MOD GERAL** - Responsável por auxiliar as atividades diárias.\n\n> \n\n**MOD** - Responsável pelo bom funcionamento dos servidores.\n\n> Maneka")
+            .setColor("RED")
 
         const Row = new MessageActionRow();
 
         Row.addComponents(
             new MessageButton()
             .setCustomId("candidatura")
-            .setStyle("SUCCESS")
-            .setLabel("Answer")
+            .setStyle("DANGER")
+            .setEmoji("📩")
+            .setLabel("CANDIDATA-TE")
         );
 
         client.channels.fetch('978584740816896020').then(channel => channel.send({ embeds: [Embed], components: [Row] }));
-        await interaction.reply({content: "Embed enviado!", ephemeral: true});
+        await interaction.reply({ content: "Embed enviado!", ephemeral: true });
     }
 }

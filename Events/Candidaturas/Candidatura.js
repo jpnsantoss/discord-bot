@@ -9,7 +9,7 @@ module.exports = {
      * @param {Client} client
      */
     async execute(modal, client) {
-        if(modal.customId !== "cand-modal") return;
+        if (modal.customId !== "cand-modal") return;
 
         await modal.deferReply({ ephemeral: true });
 
@@ -22,7 +22,7 @@ module.exports = {
         const Embed = new MessageEmbed()
             .setAuthor({ name: modal.user.tag, iconURL: modal.user.displayAvatarURL({ dynamic: true }) })
             .setColor("ORANGE")
-            .setDescription(`**Steam:** ${Steam} \n\n **Idade:** ${Idade} \n\n **Disponibilidade:** ${Nome} \n\n **Comunidades:** ${Comunidades} \n\n **Servidor:** ${Servidor}`)
+            .setDescription(`**Steam:** \n${Steam} \n\n **Idade:** \n${Idade} \n\n **Disponibilidade:** \n${Nome} \n\n **Comunidades:** \n${Comunidades} \n\n **Servidor:** \n${Servidor}\n\n**Estado:**\nEm análise`)
             .setTimestamp();
 
         const Row = new MessageActionRow();
@@ -39,7 +39,7 @@ module.exports = {
 
         Row.addComponents(aceitar, recusar);
 
-        await client.channels.fetch('983798948265357414').then(channel => channel.send({ embeds: [Embed], components: [Row]  }));
+        await client.channels.fetch('983798948265357414').then(channel => channel.send({ embeds: [Embed], components: [Row] }));
 
         modal.followUp({
             embeds: [

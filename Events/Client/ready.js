@@ -11,9 +11,9 @@ module.exports = {
      */
     execute(client) {
         console.log("O client está agora pronto!");
-        client.user.setActivity("discord.gg/gzone", {type: "PLAYING"})
+        client.user.setActivity("na Gaming Zone", { type: "PLAYING" })
 
-        if(!Database) return;
+        if (!Database) return;
         mongoose.connect(Database, {
             useNewUrlParser: true,
             useUnifiedTopology: true,

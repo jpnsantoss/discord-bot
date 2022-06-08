@@ -9,7 +9,7 @@ module.exports = {
      * @param {Client} client
      */
     async execute(modal, client) {
-        if(modal.customId !== "sugestao-modal") return;
+        if (modal.customId !== "sugestao-modal") return;
 
         await modal.deferReply({ ephemeral: true });
 
@@ -17,16 +17,13 @@ module.exports = {
 
         const Embed = new MessageEmbed()
             .setColor("ORANGE")
-            .setAuthor({name: modal.user.tag, iconURL: modal.user.displayAvatarURL({dynamic: true})})
-            .addFields(
-                {name: "Sugestão:", value: descricao},
-                {name: "Estado", value: "Pendente"}
-            )
+            .setAuthor({ name: modal.user.tag, iconURL: modal.user.displayAvatarURL({ dynamic: true }) })
+            .addFields({ name: "Sugestão:", value: descricao }, { name: "Estado:", value: "Pendente" })
             .setTimestamp();
 
         const M = await client.channels.fetch('983895498282913862').then(channel => channel.send({ embeds: [Embed] }));
-        M.react("<:thumbsUp:983901031815581756>");
-        M.react("<:thumbsDown:983901030339203074>");
+        M.react("<:Check:983911545161515028>");
+        M.react("<:Cross:983911546591784990>");
 
         modal.followUp({ content: "Sugestão enviada!" })
     }

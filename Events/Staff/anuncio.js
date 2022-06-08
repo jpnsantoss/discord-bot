@@ -9,7 +9,7 @@ module.exports = {
      * @param {Client} client
      */
     async execute(modal, client) {
-        if(modal.customId !== "anuncio-modal") return;
+        if (modal.customId !== "anuncio-modal") return;
 
         await modal.deferReply({ ephemeral: true });
 
@@ -20,14 +20,14 @@ module.exports = {
 
         const Geral = new MessageEmbed()
             .setAuthor({ name: modal.user.tag, iconURL: modal.user.displayAvatarURL({ dynamic: true }) })
-            .setColor("ORANGE")
+            .setColor("RED")
             .setTitle(`${titulo}`)
             .setDescription(`${descricao}`)
             .setTimestamp();
 
         const Staff = new MessageEmbed()
             .setAuthor({ name: modal.user.tag, iconURL: modal.user.displayAvatarURL({ dynamic: true }) })
-            .setColor("ORANGE")
+            .setColor("RED")
             .setTitle(`${titulo}`)
             .setDescription(`${descricao}`)
             .setTimestamp();
@@ -39,13 +39,13 @@ module.exports = {
             .setDescription(`${descricao}`)
             .setTimestamp();
 
-        if(tipo == "geral")
+        if (tipo == "geral")
             await client.channels.fetch('978584733917261834').then(channel => channel.send({ embeds: [Geral] }));
 
-        if(tipo == "staff")
+        if (tipo == "staff")
             await client.channels.fetch('978584748387598356').then(channel => channel.send({ embeds: [Staff] }));
 
-        if(tipo == "novidade")
+        if (tipo == "novidade")
             await client.channels.fetch('978584736186400788').then(channel => channel.send({ embeds: [Novidade] }));
 
         modal.followUp({
