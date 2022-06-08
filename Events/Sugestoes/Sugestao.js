@@ -24,14 +24,10 @@ module.exports = {
             )
             .setTimestamp();
 
-        await client.channels.fetch('983895498282913862').then(channel => channel.send({ embeds: [Embed] }));
+        const M = await client.channels.fetch('983895498282913862').then(channel => channel.send({ embeds: [Embed] }));
+        M.react("<:thumbsUp:983901031815581756>");
+        M.react("<:thumbsDown:983901030339203074>");
 
-        modal.followUp({
-            embeds: [
-                new MessageEmbed()
-                .setColor("GREEN")
-                .setDescription("Sugestão Submetida.")
-            ]
-        })
+        modal.followUp({ content: "Sugestão enviada!" })
     }
 }
