@@ -10,35 +10,31 @@ module.exports = {
      * @param {CommandInteraction} interaction 
      * @param {Client} client
      */
-    async execute (interaction, client) {
+    async execute(interaction, client) {
 
         const modal = new Modal()
             .setCustomId("anuncio-modal")
             .setTitle("Anúncio");
 
         const tipo = new SelectMenuComponent()
-        .setCustomId('tipo')
-        .setPlaceholder('Tipo de Anúncio')
-        .addOptions(
-          {
-            label: "Geral",
-            description: "Anúncio para todos os membros.",
-            value: "geral",
-            emoji: "🌍"
-          },
-          {
-            label: "Staff",
-            description: "Anúncio para a staff.",
-            value: "staff",
-            emoji: "⛔"
-          },
-          {
-            label: "Novidade",
-            description: "Novidade nos Servidores.",
-            value: "novidade",
-            emoji: "📰"
-          }
-        );
+            .setCustomId('tipo')
+            .setPlaceholder('Tipo de Anúncio')
+            .addOptions({
+                label: "Geral",
+                description: "Anúncio para todos os membros.",
+                value: "geral",
+                emoji: "🌍"
+            }, {
+                label: "Staff",
+                description: "Anúncio para a staff.",
+                value: "staff",
+                emoji: "⛔"
+            }, {
+                label: "Novidade",
+                description: "Novidade nos Servidores.",
+                value: "novidade",
+                emoji: "📰"
+            });
 
         const numero = new TextInputComponent()
             .setCustomId("numero")
@@ -61,7 +57,7 @@ module.exports = {
             .setPlaceholder("Descrição do Anúncio")
             .setRequired(true);
 
-       
+
 
         modal.addComponents(tipo, numero, titulo, descricao);
 
