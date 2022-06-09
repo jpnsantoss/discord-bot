@@ -43,10 +43,10 @@ module.exports = {
             });
 
             const embed = new MessageEmbed()
-                .setColor('6d6ee8')
+                .setColor('RED')
                 .setAuthor({ name: 'Ticket', iconURL: 'https://images.emojiterra.com/twitter/v13.1/512px/1f39f.png' })
                 .setDescription('Escolhe uma categoria para o teu ticket!')
-                .setFooter({ text: 'Coding Zone - PT', iconURL: client.user.avatarURL() })
+                .setFooter({ text: 'Gaming Zone', iconURL: client.user.avatarURL() })
                 .setTimestamp();
 
             const row = new MessageActionRow()
@@ -56,7 +56,7 @@ module.exports = {
                 .setCustomId('category')
                 .setPlaceholder('Escolhe a categoria do ticket')
                 .addOptions([{
-                        label: 'Comprar um Serviço',
+                        label: 'Compras',
                         value: 'compras',
                         emoji: '💳',
                     },
@@ -94,7 +94,7 @@ module.exports = {
                     if (msg.deletable) {
                         msg.delete().then(async() => {
                             const embed = new MessageEmbed()
-                                .setColor('6d6ee8')
+                                .setColor('RED')
                                 .setAuthor({ name: 'Ticket', iconURL: 'https://images.emojiterra.com/twitter/v13.1/512px/1f39f.png' })
                                 .setDescription(`<@!${interaction.user.id}> Abriu um ticket de: **${i.values[0].toUpperCase()}**`)
                                 .setFooter({ text: 'Gaming Zone', iconURL: client.user.avatarURL() })

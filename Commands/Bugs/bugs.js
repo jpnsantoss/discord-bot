@@ -14,7 +14,7 @@ module.exports = {
             .setAuthor({ name: "Bugs", iconURL: "https://media.discordapp.net/attachments/942119051914793020/984117415258509322/lady-beetle_1f41e_1.png" })
             .setTitle("Reporta um bug!")
             .setDescription("Encontras-te algum erro nos nossos servidores? Ajuda-nos a resolver, explica detalhadamente o que aconteceu.")
-            .setFooter({ text: "🔽 Clica neste botão para enviares o teu bug!" })
+            .setFooter({ text: "🔻 Clica neste botão para enviares o teu bug!" })
             .setColor("RED")
 
         const Row = new MessageActionRow();
