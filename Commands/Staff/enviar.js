@@ -1,18 +1,15 @@
 const { CommandInteraction, MessageEmbed, Client } = require("discord.js");
-const guildMemberAdd = require("../../Events/Member/guildMemberAdd");
 
 module.exports = {
     name: "enviar",
     description: "Envia uma mensagem para o servidor.",
     permission: "ADMINISTRATOR",
-    options: [
-        {
+    options: [{
             name: "tipo",
             description: "Tipo de mensagem",
             type: "STRING",
             required: true,
-            choices: [
-                {
+            choices: [{
                     name: "Embed",
                     value: "embed"
                 },
@@ -40,7 +37,7 @@ module.exports = {
      * @param {CommandInteraction} interaction 
      * @param {Client} client
      */
-    async execute (interaction, client) {
+    async execute(interaction, client) {
 
         const { options } = interaction;
 
@@ -49,30 +46,32 @@ module.exports = {
         const Title = options.getString("titulo");
         const Mensagem = options.getString("texto");
 
-        switch(choices) {
-            case "embed" : {
-                const Embed = new MessageEmbed()
-                .setColor("RED")
-                .setAuthor({name: "Nova Mensagem", iconURL: "https://cdn.pixabay.com/photo/2016/06/13/17/30/mail-1454731_960_720.png"})
-                .setDescription(Mensagem)
-                .setTimestamp();
+        switch (choices) {
+            case "embed":
+                {
+                    const Embed = new MessageEmbed()
+                        .setColor("RED")
+                        .setAuthor({ name: "Nova Mensagem", iconURL: "https://cdn.pixabay.com/photo/2016/06/13/17/30/mail-1454731_960_720.png" })
+                        .setDescription(Mensagem)
+                        .setTimestamp();
 
-                if (Title) Embed.setTitle(Title);
+                    if (Title) Embed.setTitle(Title);
 
-                interaction.channel.send({embeds: [Embed]});
+                    interaction.channel.send({ embeds: [Embed] });
 
-                interaction.reply({content: "Mensagem Enviada.", ephemeral: true});
-            }
-            break;
-            case "mensagem" : {
-                if (Title) {
-                    interaction.channel.send({content: `**${Title}** \n\n ${Mensagem}`});
-                } else {
-                    interaction.channel.send({content: Mensagem});
+                    interaction.reply({ content: "Mensagem Enviada.", ephemeral: true });
                 }
-                interaction.reply({content: "Mensagem Enviada.", ephemeral: true});
-            }
-            break;
+                break;
+            case "mensagem":
+                {
+                    if (Title) {
+                        interaction.channel.send({ content: `**${Title}** \n\n ${Mensagem}` });
+                    } else {
+                        interaction.channel.send({ content: Mensagem });
+                    }
+                    interaction.reply({ content: "Mensagem Enviada.", ephemeral: true });
+                }
+                break;
         }
     }
 }
