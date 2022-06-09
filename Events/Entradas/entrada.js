@@ -14,8 +14,8 @@ module.exports = {
         client.channels.cache.get('978584724597514270').setName(`🌍・Membros: ${guild.memberCount}`)
 
         const Welcome = new MessageEmbed()
-        .setColor("DARKER_GREY")
-        .setDescription(`
+            .setColor("DARKER_GREY")
+            .setDescription(`
         **━━━━━━ㅤﾠBem-Vindo à Gaming Zone!ﾠㅤ━━━━━━**
         **ㅤㅤㅤㅤㅤㅤㅤㅤㅤwww.gamingzone.pt**
         **━━━━━━━━━━━━━━━━━━━━━━━━━━**
@@ -33,8 +33,8 @@ module.exports = {
         ctx.fillStyle = "#FFFFFF";
         ctx.fillText(`${member.displayName}`, canvas.width / 3, canvas.height / 1.6);
 
-        const avatar = await Canvas.loadImage(member.user.displayAvatarURL({format: "jpg"}));
-        
+        const avatar = await Canvas.loadImage(member.user.displayAvatarURL({ format: "jpg" }));
+
         ctx.beginPath();
         ctx.arc(125, 125, 80, 0, 2 * Math.PI, true);
         ctx.closePath();
@@ -44,8 +44,8 @@ module.exports = {
         const attachment = new MessageAttachment(canvas.toBuffer(), "boostimg.png");
 
         Welcome.setImage(`attachment://booster.png`);
-        
-        await client.channels.fetch('978584731052552212').then(channel => channel.send({embeds: [Welcome], files: [attachment]}).catch((err) => console.log(err)));
+
+        await client.channels.fetch('978584731052552212').then(channel => channel.send({ embeds: [Welcome], files: [attachment] }).catch((err) => console.log(err)));
 
         // Welcome.setDescription(`Obrigado por dares boost ao servidor! A tua ajuda é apreciada.`)
         // member.send({embeds: [Welcome]});
