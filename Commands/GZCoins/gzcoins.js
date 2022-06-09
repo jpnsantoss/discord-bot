@@ -26,7 +26,7 @@ module.exports = {
 
         Comprar.addComponents(
             new MessageButton()
-            .setCustomId("comprar")
+            .setCustomId('open-ticket')
             .setStyle("SUCCESS")
             .setEmoji("🛒")
             .setLabel("Comprar")

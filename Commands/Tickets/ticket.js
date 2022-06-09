@@ -1,8 +1,8 @@
 const { MessageEmbed, MessageActionRow, MessageButton, Message } = require("discord.js");
 
 module.exports = {
-    name: "verify",
-    description: "Envia embed de regras e botão para auto-role",
+    name: "tickets",
+    description: "Envia embed dos tickets.",
     permission: "ADMINISTRATOR",
 
     async execute(interaction) {
