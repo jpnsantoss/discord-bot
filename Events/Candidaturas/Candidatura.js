@@ -25,21 +25,7 @@ module.exports = {
             .setDescription(`**Steam:** \n${Steam} \n\n **Idade:** \n${Idade} \n\n **Disponibilidade:** \n${Nome} \n\n **Comunidades:** \n${Comunidades} \n\n **Servidor:** \n${Servidor}\n\n**Estado:**\nEm análise`)
             .setTimestamp();
 
-        const Row = new MessageActionRow();
-
-        const aceitar = new MessageButton()
-            .setCustomId("cand-aceitar")
-            .setStyle("SUCCESS")
-            .setLabel("ACEITAR");
-
-        const recusar = new MessageButton()
-            .setCustomId("cand-recusar")
-            .setStyle("DANGER")
-            .setLabel("RECUSAR");
-
-        Row.addComponents(aceitar, recusar);
-
-        await client.channels.fetch('983798948265357414').then(channel => channel.send({ embeds: [Embed], components: [Row] }));
+        await client.channels.fetch('983798948265357414').then(channel => channel.send({ embeds: [Embed] }));
 
         modal.followUp({
             embeds: [

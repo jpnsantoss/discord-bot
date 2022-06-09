@@ -20,7 +20,32 @@ module.exports = {
             .setPlaceholder("Qual é o bug que queres reportar?")
             .setRequired(true);
 
-        modal.addComponents(descricao);
+        const sv = new SelectMenuComponent()
+            .setCustomId('sv')
+            .setPlaceholder('Servidor')
+            .addOptions({
+                label: "Geral",
+                description: "Bug geral",
+                value: "first_option",
+            }, {
+                label: "Competitivo",
+                description: "Bug no servidor de Competitivo",
+                value: 'second_option',
+            }, {
+                label: "Retakes",
+                description: "Bug no servidor de Retakes",
+                value: 'third_option',
+            }, {
+                label: "AWP",
+                description: "Bug no servidor de AWP",
+                value: 'fourth_option',
+            }, {
+                label: "Discord",
+                description: "Bug no servidor de Discord",
+                value: 'fifth_option',
+            })
+
+        modal.addComponents(sv, descricao);
 
 
         showModal(modal, {

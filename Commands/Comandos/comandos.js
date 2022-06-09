@@ -12,9 +12,9 @@ module.exports = {
     async execute(interaction, client) {
         const Embed = new MessageEmbed()
             .setAuthor({ name: "Comandos", iconURL: "https://media.discordapp.net/attachments/942119051914793020/984117415258509322/lady-beetle_1f41e_1.png" })
-            .setTitle("Reporta um bug!")
-            .setDescription("Encontras-te algum erro nos nossos servidores? Ajuda-nos a resolver, explica detalhadamente o que aconteceu.")
-            .setFooter({ text: "🔽 Clica neste botão para enviares o teu bug!" })
+            .setTitle("Lista de comandos de cada servidor!")
+            .setDescription("Estas a procura de algum comando em específico de um dos nossos servidores, ou queres saber os comandos todos para poderes usufruir 100% dos mesmos?")
+            .setFooter({ text: "🔻 Seleciona um servidor abaixo para enviar uma lista de comandops!" })
             .setColor("RED")
 
         const row = new MessageActionRow()
@@ -37,12 +37,7 @@ module.exports = {
                     label: 'AWP',
                     description: 'Lista de comandos dos servidores de retakes',
                     value: 'third_option',
-                },
-                {
-                    label: 'Discord',
-                    description: 'Lista de comandos dos servidores de retakes',
-                    value: 'fourth_option',
-                },
+                }
             ]),
         );
 

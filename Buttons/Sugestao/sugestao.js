@@ -20,7 +20,33 @@ module.exports = {
             .setPlaceholder("Qual é a tua Sugestão?")
             .setRequired(true);
 
-        modal.addComponents(descricao);
+        const sv = new SelectMenuComponent()
+            .setCustomId('sv')
+            .setPlaceholder('Servidor')
+            .addOptions({
+                label: "Geral",
+                description: "Sugestão geral",
+                value: "first_option",
+            }, {
+                label: "Competitivo",
+                description: "Sugestão para o servidor de Competitivo",
+                value: 'second_option',
+            }, {
+                label: "Retakes",
+                description: "Sugestão para o servidor de Retakes",
+                value: 'third_option',
+            }, {
+                label: "AWP",
+                description: "Sugestão para o servidor de AWP",
+                value: 'fourth_option',
+            }, {
+                label: "Discord",
+                description: "Sugestão para o servidor de Discord",
+                value: 'fifth_option',
+            })
+            
+
+        modal.addComponents(sv, descricao);
 
 
         showModal(modal, {

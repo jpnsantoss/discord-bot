@@ -21,14 +21,15 @@ module.exports = {
         <:6_:980517465408802816> Não tentes enganar outros jogadores. 
         <:7_:980517465379446844> Respeitar qualquer decisão de um staff. 
         <:8_:980517465329115206>  Todos os comentários sexistas são proibidos.`)
-        .setFooter({text: "🔽 Clica neste botão para teres acederes ao nosso discord!"});
+        .setFooter({text: "🔻 Clica neste botão para teres acederes ao nosso discord!"});
 
         const row = new MessageActionRow();
         row.addComponents(
             new MessageButton()
             .setCustomId("verificar")
             .setLabel("Aceitar")
-            .setStyle("SUCCESS"),
+            .setStyle("SUCCESS")
+            .setEmoji("✔️"),
         )
         interaction.channel.send({embeds: [Embed], components: [row]});
         await interaction.reply({content: "Embed enviado!", ephemeral: true});
