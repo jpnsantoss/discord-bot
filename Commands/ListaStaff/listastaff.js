@@ -12,7 +12,7 @@ module.exports = {
     async execute(interaction, client) {
         const Embed = new MessageEmbed()
             .setTitle("<a:1097dotanimatedred:983917835799658507> **LISTA STAFF**")
-            .setDescription("**DONO** - Responsável máximo.\n\n> ORYGEN\n> JPLAYS\n> qWeR\n\n**SUB-DONO** - Responsável pela administração.\n\n> StomperG\n\n**ADMIN** - Responsável pela coordenação e gestão de staff.\n\n> Lantejoula\n> Kotinha\n\n**MOD GERAL** - Responsável por auxiliar as atividades diárias.\n\n> \n\n**MOD** - Responsável pelo bom funcionamento dos servidores.\n\n> Maneka")
+            .setDescription("**DONO** - Responsável máximo.\n\n> ORYGEN\n> JPLAYS\n\n**SUB-DONO** - Responsável pela administração.\n\n> StomperG\n\n**ADMIN** - Responsável pela coordenação e gestão de staff.\n\n> Lantejoula\n> qWeR\n> Kotinha\n\n**MOD** - Responsável pelo bom funcionamento dos servidores.\n\n> Maneka")
             .setColor("RED")
 
         const Row = new MessageActionRow();
